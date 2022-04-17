@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-export const Link = () => {
+export const Logout = () => {
 
   let navigate = useNavigate();
 
@@ -11,7 +11,7 @@ export const Link = () => {
   }
   return (
       <>
-        <h1>Link Functional Component Placeholder!</h1>  
+        <h1>Logout Functional Component Placeholder!</h1>  
         <button onClick={onLogout}> Logout</button>  
       </>
     )
