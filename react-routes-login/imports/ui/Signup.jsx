@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// need useNavigate in order to send a logged in person to personalPlace
+import { Link, useNavigate } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
 
 export const Signup = () => {
@@ -12,6 +13,7 @@ export const Signup = () => {
     password: ""
   })
 
+  let navigate = useNavigate();
 
 
   function submitForm(event){
@@ -19,6 +21,14 @@ export const Signup = () => {
 
     Accounts.createUser({email: formData_state.email, password: formData_state.password}, (errorCallbackObject) => {
       console.log('signup callback error', errorCallbackObject);
+      // check if there is an error. If not, send the user on
+      if (!!errorCallbackObject){ // if errorCallbackObject is null
+        console.log('Signup callback error', errorCallbackObject);
+        // console.log('Signup callback error', errorCallbackObject.reason);
+        setError(errorCallbackObject.reason);
+      } else {
+        navigate("/personalPlace");
+      }
     }); 
 
                                   
