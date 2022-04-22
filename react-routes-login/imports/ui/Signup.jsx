@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 // need useNavigate in order to send a logged in person to personalPlace
+//  once they have registered
 import { Link, useNavigate } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
 
